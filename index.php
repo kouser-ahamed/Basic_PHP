@@ -1,5 +1,7 @@
 <?php
-for ($i = 1; $i <= 10; $i++) {
+$i = 1;
+while ($i <= 100) {
     echo "This is line number $i<br>";
+    $i++;
 }
 ?>
