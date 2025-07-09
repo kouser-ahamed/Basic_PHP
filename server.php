@@ -1,3 +1,5 @@
-<h1>
-    Hi.. This is Server...!
-</h1>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo $_POST["val1"]; 
+}
+?>
