@@ -9,13 +9,17 @@ $conn = mysqli_connect($host, $username, $password, $database);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["val1"];
-    $age = $_POST["val2"];
 
-    $sql_query = "INSERT INTO users (name, age) VALUES ('$name','$age')";
-    $conn->query($sql_query);
+    $sql_query = "SELECT id, name, age FROM users WHERE name = '$name'";
+    $result = $conn->query($sql_query);
 
-    echo "Data Saved Successfully";
+    while ($row = $result->fetch_assoc()) {
+        echo "Name : " . $row["name"] . "<br>";
+        echo "Age : " . $row["age"] . "<br>";
+        echo "---------------------------<br>";
+    }
 }
+
 
 // <!--CREATE DATABASE IF NOT EXISTS dummy_db;
 
